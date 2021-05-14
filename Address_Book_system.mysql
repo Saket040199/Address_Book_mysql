@@ -160,3 +160,56 @@ mysql> select count(*) from address_book_table where city='chhatarpur'or state='
 |        1 |
 +----------+
 1 row in set (0.00 sec)
+
+//UC8
+
+mysql> insert into address_book_table (first_name,last_name,address,city,state,zip_code,email) values
+    -> ('Farzan','Ullah','naya panna naka','chhatarpur','MP',471002,'farru@gmail.com'),
+    -> ('Anikesh','Mahajan','jammu area','jammu','J&K',445001,'anikesh@gmail.com');
+Query OK, 2 rows affected (0.03 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from address_book_table;
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+
+| id | first_name | last_name | address           | city       | state | zip_code | email               |
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+
+|  1 | Saket      | Jain      | purana panna naka | chhatarpur | MP    |   471001 | saketj420@gmail.com |
+|  3 | Tanvi      | Sharma    | nahi pataa        | ghaziabad  | UP    |   473001 | tanvipgl@gmail.com  |
+|  4 | Farzan     | Ullah     | naya panna naka   | chhatarpur | MP    |   471002 | farru@gmail.com     |
+|  5 | Anikesh    | Mahajan   | jammu area        | jammu      | J&K   |   445001 | anikesh@gmail.com   |
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+
+4 rows in set (0.02 sec)
+
+mysql> select * from address_book_table
+    -> order by first_name;
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+
+| id | first_name | last_name | address           | city       | state | zip_code | email               |
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+
+|  5 | Anikesh    | Mahajan   | jammu area        | jammu      | J&K   |   445001 | anikesh@gmail.com   |
+|  4 | Farzan     | Ullah     | naya panna naka   | chhatarpur | MP    |   471002 | farru@gmail.com     |
+|  1 | Saket      | Jain      | purana panna naka | chhatarpur | MP    |   471001 | saketj420@gmail.com |
+|  3 | Tanvi      | Sharma    | nahi pataa        | ghaziabad  | UP    |   473001 | tanvipgl@gmail.com  |
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from address_book_table
+    -> order by first_name desc;
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+
+| id | first_name | last_name | address           | city       | state | zip_code | email               |
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+
+|  3 | Tanvi      | Sharma    | nahi pataa        | ghaziabad  | UP    |   473001 | tanvipgl@gmail.com  |
+|  1 | Saket      | Jain      | purana panna naka | chhatarpur | MP    |   471001 | saketj420@gmail.com |
+|  4 | Farzan     | Ullah     | naya panna naka   | chhatarpur | MP    |   471002 | farru@gmail.com     |
+|  5 | Anikesh    | Mahajan   | jammu area        | jammu      | J&K   |   445001 | anikesh@gmail.com   |
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+
+4 rows in set (0.00 sec)
+
+mysql> select first_name from address_book_table
+    ->  where city='chhatarpur' order by first_name;
++------------+
+| first_name |
++------------+
+| Farzan     |
+| Saket      |
++------------+
+2 rows in set (0.00 sec)
