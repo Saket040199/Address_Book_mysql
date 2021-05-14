@@ -101,3 +101,17 @@ mysql> select * from address_book_table;
 |  3 | Tanvi      | Sharma    | nahi pataa        | ghaziabad  | UP    |   473001 | tanvipgl@gmail.com  |
 +----+------------+-----------+-------------------+------------+-------+----------+---------------------+
 3 rows in set (0.00 sec)
+
+//UC5
+
+mysql> delete from address_book_table where first_name='Anikesh';
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from address_book_table;
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+
+| id | first_name | last_name | address           | city       | state | zip_code | email               |
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+
+|  1 | Saket      | Jain      | purana panna naka | chhatarpur | MP    |   471001 | saketj420@gmail.com |
+|  3 | Tanvi      | Sharma    | nahi pataa        | ghaziabad  | UP    |   473001 | tanvipgl@gmail.com  |
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+
+2 rows in set (0.00 sec)
