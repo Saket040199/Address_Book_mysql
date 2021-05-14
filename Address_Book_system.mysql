@@ -126,3 +126,37 @@ mysql> select * from address_book_table
 |  1 | Saket      | Jain      | purana panna naka | chhatarpur | MP    |   471001 | saketj420@gmail.com |
 +----+------------+-----------+-------------------+------------+-------+----------+---------------------+
 1 row in set (0.00 sec)
+
+//UC7
+
+mysql> select count(*) from address_book_table;
++----------+
+| count(*) |
++----------+
+|        2 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select count(*) from address_book_table where city='chhatarpur';
++----------+
+| count(*) |
++----------+
+|        1 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select count(*) from address_book_table where state='up';
++----------+
+| count(*) |
++----------+
+|        1 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select count(*) from address_book_table where city='chhatarpur'or state='mp';
++----------+
+| count(*) |
++----------+
+|        1 |
++----------+
+1 row in set (0.00 sec)
