@@ -52,3 +52,22 @@ mysql> describe address_book_table;
 | email      | varchar(25)  | NO   |     | NULL    |                |
 +------------+--------------+------+-----+---------+----------------+
 8 rows in set (0.01 sec)
+
+//UC3
+
+mysql> insert into address_book_table (first_name,last_name,address,city,state,zip_code,email) values
+    -> ('Saket','Jain','purana panna naka','chhatarpur','MP',471001,'saketj420@gmail.com'),
+    -> ('Anikesh','Mahajan','jammu area','jammu','J&K',445001,'anikesh@gmail.com'),
+    -> ('Tanvi','Sharma','nahi pataa','ghaziabad','UP',475001,'tanvipgl@gmail.com');
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from address_book_table;
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+
+| id | first_name | last_name | address           | city       | state | zip_code | email               |
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+
+|  1 | Saket      | Jain      | purana panna naka | chhatarpur | MP    |   471001 | saketj420@gmail.com |
+|  2 | Anikesh    | Mahajan   | jammu area        | jammu      | J&K   |   445001 | anikesh@gmail.com   |
+|  3 | Tanvi      | Sharma    | nahi pataa        | ghaziabad  | UP    |   475001 | tanvipgl@gmail.com  |
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+
+3 rows in set (0.00 sec)
