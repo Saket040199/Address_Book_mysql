@@ -115,3 +115,14 @@ mysql> select * from address_book_table;
 |  3 | Tanvi      | Sharma    | nahi pataa        | ghaziabad  | UP    |   473001 | tanvipgl@gmail.com  |
 +----+------------+-----------+-------------------+------------+-------+----------+---------------------+
 2 rows in set (0.00 sec)
+
+//UC6
+
+mysql> select * from address_book_table
+    -> where city='chhatarpur' or state='MP';
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+
+| id | first_name | last_name | address           | city       | state | zip_code | email               |
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+
+|  1 | Saket      | Jain      | purana panna naka | chhatarpur | MP    |   471001 | saketj420@gmail.com |
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+
+1 row in set (0.00 sec)
