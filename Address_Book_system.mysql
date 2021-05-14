@@ -71,3 +71,33 @@ mysql> select * from address_book_table;
 |  3 | Tanvi      | Sharma    | nahi pataa        | ghaziabad  | UP    |   475001 | tanvipgl@gmail.com  |
 +----+------------+-----------+-------------------+------------+-------+----------+---------------------+
 3 rows in set (0.00 sec)
+
+//UC4
+
+mysql> update address_book_table set zip_code = 472001 where first_name ='Anikesh';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from address_book_table;
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+
+| id | first_name | last_name | address           | city       | state | zip_code | email               |
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+
+|  1 | Saket      | Jain      | purana panna naka | chhatarpur | MP    |   471001 | saketj420@gmail.com |
+|  2 | Anikesh    | Mahajan   | jammu area        | jammu      | J&K   |   472001 | anikesh@gmail.com   |
+|  3 | Tanvi      | Sharma    | nahi pataa        | ghaziabad  | UP    |   475001 | tanvipgl@gmail.com  |
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+
+3 rows in set (0.02 sec)
+
+mysql> update address_book_table set zip_code = 473001 where id =3;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from address_book_table;
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+
+| id | first_name | last_name | address           | city       | state | zip_code | email               |
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+
+|  1 | Saket      | Jain      | purana panna naka | chhatarpur | MP    |   471001 | saketj420@gmail.com |
+|  2 | Anikesh    | Mahajan   | jammu area        | jammu      | J&K   |   472001 | anikesh@gmail.com   |
+|  3 | Tanvi      | Sharma    | nahi pataa        | ghaziabad  | UP    |   473001 | tanvipgl@gmail.com  |
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+
+3 rows in set (0.00 sec)
