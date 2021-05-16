@@ -367,3 +367,56 @@ mysql> show tables;
 | contactlist_table              |
 +--------------------------------+
 4 rows in set (0.01 sec)
+
+//UC13
+
+//Retrieve UC6,UC7,UC8 and UC10
+
+mysql> select contactlist_table.first_name,address_table.city,address_table.state
+    -> from contactlist_table
+    -> inner join address_table on address_table.id=contactlist_table.id
+    -> where address_table.city='chhatarpur' or state='MP';
++------------+------------+-------+
+| first_name | city       | state |
++------------+------------+-------+
+| Saket      | chhatarpur | MP    |
+| Farzan     | chhatarpur | MP    |
++------------+------------+-------+
+2 rows in set (0.00 sec)
+
+mysql> select count(*)
+    -> from contactlist_table
+    -> inner join address_table on address_table.id=contactlist_table.id
+    -> where address_table.city='chhatarpur' or address_table.state='MP';
++----------+
+| count(*) |
++----------+
+|        2 |
++----------+
+1 row in set (0.02 sec)
+
+mysql> select *
+    -> from contactlist_table
+    -> inner join address_table on address_table.id=contactlist_table.id
+    -> where city='chhatarpur'
+    -> order by contactlist_table.first_name;
++----+------------+-----------+---------------------+----+-------------------+------------+-------+----------+
+| id | first_name | last_name | email               | id | address           | city       | state | zip_code |
++----+------------+-----------+---------------------+----+-------------------+------------+-------+----------+
+|  4 | Farzan     | Ullah     | farru@gmail.com     |  4 | naya panna naka   | chhatarpur | MP    |   471002 |
+|  1 | Saket      | Jain      | saketj420@gmail.com |  1 | purana panna naka | chhatarpur | MP    |   471001 |
++----+------------+-----------+---------------------+----+-------------------+------------+-------+----------+
+2 rows in set (0.02 sec)
+
+mysql> select count(*)
+    -> from contactlist_table
+    -> inner join contact_type_table on contact_type_table.id=contactlist_table.id
+    -> where contact_type_table.type='profession';
++----------+
+| count(*) |
++----------+
+|        2 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> exit;
