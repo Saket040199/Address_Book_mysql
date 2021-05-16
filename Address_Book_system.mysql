@@ -269,3 +269,41 @@ mysql> select count(*),type from address_book_table group by type;
 |        1 | friend     |
 +----------+------------+
 3 rows in set (0.02 sec)
+
+//UC11
+
+mysql> insert into address_book_table (first_name,last_name,address,city,state,zip_code,email,type) values
+    -> ('parv','jain','panna naka','chhatarpur','MP',471008,'parv22@gmail.com','family'),
+    -> ('parv','jain','panna naka','chhatarpur','MP',471008,'parv22@gmail.com','friend');
+Query OK, 2 rows affected (0.02 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from address_book_table;
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+------------+
+| id | first_name | last_name | address           | city       | state | zip_code | email               | type       |
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+------------+
+|  1 | Saket      | Jain      | purana panna naka | chhatarpur | MP    |   471001 | saketj420@gmail.com | family     |
+|  3 | Tanvi      | Sharma    | nahi pataa        | ghaziabad  | UP    |   473001 | tanvipgl@gmail.com  | profession |
+|  4 | Farzan     | Ullah     | naya panna naka   | chhatarpur | MP    |   471002 | farru@gmail.com     | friend     |
+|  5 | Anikesh    | Mahajan   | jammu area        | jammu      | J&K   |   445001 | anikesh@gmail.com   | profession |
+|  6 | parv       | jain      | panna naka        | chhatarpur | MP    |   471008 | parv22@gmail.com    | family     |
+|  7 | parv       | jain      | panna naka        | chhatarpur | MP    |   471008 | parv22@gmail.com    | friend     |
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+------------+
+6 rows in set (0.02 sec)
+
+//Here parv have same data with different id this shows data redundancy that why we have to delete it and use
+// normalization and ER techniques to ensure and remove redundancy
+
+mysql> delete from address_book_table where first_name='parv';
+Query OK, 2 rows affected (0.02 sec)
+
+mysql> select * from address_book_table;
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+------------+
+| id | first_name | last_name | address           | city       | state | zip_code | email               | type       |
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+------------+
+|  1 | Saket      | Jain      | purana panna naka | chhatarpur | MP    |   471001 | saketj420@gmail.com | family     |
+|  3 | Tanvi      | Sharma    | nahi pataa        | ghaziabad  | UP    |   473001 | tanvipgl@gmail.com  | profession |
+|  4 | Farzan     | Ullah     | naya panna naka   | chhatarpur | MP    |   471002 | farru@gmail.com     | friend     |
+|  5 | Anikesh    | Mahajan   | jammu area        | jammu      | J&K   |   445001 | anikesh@gmail.com   | profession |
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+------------+
+4 rows in set (0.00 sec)
