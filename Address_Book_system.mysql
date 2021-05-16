@@ -213,3 +213,47 @@ mysql> select first_name from address_book_table
 | Saket      |
 +------------+
 2 rows in set (0.00 sec)
+
+//UC9
+
+mysql> alter table address_book_table add type varchar(100);
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from address_book_table;
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+------+
+| id | first_name | last_name | address           | city       | state | zip_code | email               | type |
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+------+
+|  1 | Saket      | Jain      | purana panna naka | chhatarpur | MP    |   471001 | saketj420@gmail.com | NULL |
+|  3 | Tanvi      | Sharma    | nahi pataa        | ghaziabad  | UP    |   473001 | tanvipgl@gmail.com  | NULL |
+|  4 | Farzan     | Ullah     | naya panna naka   | chhatarpur | MP    |   471002 | farru@gmail.com     | NULL |
+|  5 | Anikesh    | Mahajan   | jammu area        | jammu      | J&K   |   445001 | anikesh@gmail.com   | NULL |
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+------+
+4 rows in set (0.00 sec)
+
+mysql> update address_book_table set type='family' where first_name='saket';
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update address_book_table set type='profession' where first_name='tanvi';
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update address_book_table set type='profession' where first_name='anikesh';
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update address_book_table set type='friend' where first_name='farzan';
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from address_book_table;
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+------------+
+| id | first_name | last_name | address           | city       | state | zip_code | email               | type       |
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+------------+
+|  1 | Saket      | Jain      | purana panna naka | chhatarpur | MP    |   471001 | saketj420@gmail.com | family     |
+|  3 | Tanvi      | Sharma    | nahi pataa        | ghaziabad  | UP    |   473001 | tanvipgl@gmail.com  | profession |
+|  4 | Farzan     | Ullah     | naya panna naka   | chhatarpur | MP    |   471002 | farru@gmail.com     | friend     |
+|  5 | Anikesh    | Mahajan   | jammu area        | jammu      | J&K   |   445001 | anikesh@gmail.com   | profession |
++----+------------+-----------+-------------------+------------+-------+----------+---------------------+------------+
+4 rows in set (0.00 sec)
