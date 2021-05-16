@@ -307,3 +307,63 @@ mysql> select * from address_book_table;
 |  5 | Anikesh    | Mahajan   | jammu area        | jammu      | J&K   |   445001 | anikesh@gmail.com   | profession |
 +----+------------+-----------+-------------------+------------+-------+----------+---------------------+------------+
 4 rows in set (0.00 sec)
+
+//UC12
+
+//Using Normailzation and ER diagram
+
+mysql> create table contactlist_table select id,first_name,last_name,email from address_book_table;
+Query OK, 4 rows affected (0.05 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> create table address_table select id,address,city,state,zip_code from address_book_table;
+Query OK, 4 rows affected (0.06 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> create table contact_type_table select id,first_name,last_name,type from address_book_table;
+Query OK, 4 rows affected (0.04 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from contactlist_table;
++----+------------+-----------+---------------------+
+| id | first_name | last_name | email               |
++----+------------+-----------+---------------------+
+|  1 | Saket      | Jain      | saketj420@gmail.com |
+|  3 | Tanvi      | Sharma    | tanvipgl@gmail.com  |
+|  4 | Farzan     | Ullah     | farru@gmail.com     |
+|  5 | Anikesh    | Mahajan   | anikesh@gmail.com   |
++----+------------+-----------+---------------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from contact_type_table;
++----+------------+-----------+------------+
+| id | first_name | last_name | type       |
++----+------------+-----------+------------+
+|  1 | Saket      | Jain      | family     |
+|  3 | Tanvi      | Sharma    | profession |
+|  4 | Farzan     | Ullah     | friend     |
+|  5 | Anikesh    | Mahajan   | profession |
++----+------------+-----------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from address_table;
++----+-------------------+------------+-------+----------+
+| id | address           | city       | state | zip_code |
++----+-------------------+------------+-------+----------+
+|  1 | purana panna naka | chhatarpur | MP    |   471001 |
+|  3 | nahi pataa        | ghaziabad  | UP    |   473001 |
+|  4 | naya panna naka   | chhatarpur | MP    |   471002 |
+|  5 | jammu area        | jammu      | J&K   |   445001 |
++----+-------------------+------------+-------+----------+
+4 rows in set (0.00 sec)
+
+mysql> show tables;
++--------------------------------+
+| Tables_in_address_book_service |
++--------------------------------+
+| address_book_table             |
+| address_table                  |
+| contact_type_table             |
+| contactlist_table              |
++--------------------------------+
+4 rows in set (0.01 sec)
