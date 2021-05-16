@@ -257,3 +257,15 @@ mysql> select * from address_book_table;
 |  5 | Anikesh    | Mahajan   | jammu area        | jammu      | J&K   |   445001 | anikesh@gmail.com   | profession |
 +----+------------+-----------+-------------------+------------+-------+----------+---------------------+------------+
 4 rows in set (0.00 sec)
+
+//UC10
+
+mysql> select count(*),type from address_book_table group by type;
++----------+------------+
+| count(*) | type       |
++----------+------------+
+|        1 | family     |
+|        2 | profession |
+|        1 | friend     |
++----------+------------+
+3 rows in set (0.02 sec)
